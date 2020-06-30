@@ -24,6 +24,7 @@
   "scripts": {
     "build": "webpack",
     "start": "nodemon server/index.js",
+    "start-build": "parallel -- \"npm run start\" \"npm run build\"",
     "seed": "node db/seed.js",
     "docs-md": "npx documentation build user/index.jsx -f md > docs.md",
     "docs-html": "rm -rf docs; npx documentation build user/index.jsx -f html -o docs"

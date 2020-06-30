@@ -3,37 +3,51 @@ import React from 'react';
 import Slide from './Slide.jsx';
 
 const arrowStyleLeft = {
-  'position': 'absolute',
-  'top': '48%',
   'fontSize': '400%',
   'backgroundColor': 'rgba(255, 255, 255)',
 };
 
 const arrowStyleRight = {
-  'position': 'absolute',
-  'top': '48%',
+  'float': 'right',
   'right': '0%',
   'fontSize': '400%',
   'backgroundColor': 'rgba(255, 255, 255)',
 };
 
+const divInnerStyle = {
+  'float': 'none',
+};
+
+const divStyle = {
+  'float': 'left',
+  'width': '80%',
+};
+
 /**
- * Holds multiple slide components, each of them holding a video or photo
- * @param {React.Props} props
- * @param {Array<Object>} props.data
- * @param {Object} props.data.N
- * @param {URL} props.data.N.url
- * @param {'video' | 'photo'} props.data.N.type
+ * Holds multiple slide components, each of them holding a photo or video
+ * @param {React.Props} props react props
+ * @param {Array<Object>} props.data the photos or videos (possibly mixed)
+ * @param {Object} props.data.N props.data[N] where 0 <= n < props.data.length
+ * @param {URL} props.data.N.url the url of the photo or video 
+ * @param {'video' | 'photo'} props.data.N.type is it a photo or video
  * @returns {React.ElementType} 
  */
 const Slides = class extends React.Component {
+  /** @constructor */
   constructor(props) {
     super(props);
     this.state = {
-      current: 0,
+      current: 1,
     }
   }
 
+  /**
+   * moves the photo carousel forward or backwards;
+   * implements wrapping behavior
+   * @memberof Slides
+   * @param {Integer} n 
+   * @returns {void}
+   */
   forward(n) {
     let newn = (this.state.current + n) % this.props.data.length;
     if (newn < 0) {
@@ -45,15 +59,15 @@ const Slides = class extends React.Component {
   };
 
   render() {
-    return <div className="slideshow-container" style={{ position: 'relative' }}>
-      <a className={"next"} onClick={() => this.forward(1)} style={arrowStyleLeft}>&lt;</a>
-      <a className={"prev"} onClick={() => this.forward(-1)} style={arrowStyleRight}>&gt;</a >
+    return <div style={divStyle}>
       {
-        this.props.data.map((data, n) =>
-          <div key={n} className="slide">
-            <Slide data={data} show={this.state.current === n} />
-          </div>)
+        this.props.data.map(
+          (data, n) =>
+            <Slide key={n} data={data} show={this.state.current === n} />
+        )
       }
+      <a onClick={() => this.forward(1)} style={arrowStyleLeft}>&lt;</a>
+      <a onClick={() => this.forward(-1)} style={arrowStyleRight}>&gt;</a >
     </div >;
   }
 };

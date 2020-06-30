@@ -10,10 +10,10 @@ import React from 'react';
 
 const Video = function (props) {
   let style = {};
-  style.width = '100vw';
-  style.height =  '50vw';
+  style.width = '100%';
+  style.height = '60%';
   if (props.show) {
-    return <iframe className={style} src={props.url} style={style}></iframe>
+    return <iframe src={props.url} style={style}></iframe>
   } else {
     return <div></div>
   }
