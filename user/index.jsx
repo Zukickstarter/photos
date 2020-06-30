@@ -6,5 +6,5 @@ import App from './parts/App.jsx';
 fetch('/api/photos')
     .then(x => x.json())
     .then(function(data) {
-        ReactDOM.render(<App data={data}/>, document.getElementById('react'));
+        ReactDOM.render(<App data={data}/>, document.getElementById('photos-react'));
     });

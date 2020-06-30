@@ -18,8 +18,7 @@
     "nodemon": "^2.0.4",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "webpack": "^4.43.0",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^4.43.0"
   },
   "scripts": {
     "build": "webpack",
@@ -38,5 +37,8 @@
   "bugs": {
     "url": "https://github.com/Zukickstarter/Photo/issues"
   },
-  "homepage": "https://github.com/Zukickstarter/Photo#readme"
+  "homepage": "https://github.com/Zukickstarter/Photo#readme",
+  "devDependencies": {
+    "webpack-cli": "^3.3.12"
+  }
 }

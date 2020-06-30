@@ -4,7 +4,6 @@ console.log(__dirname);
 
 module.exports = {
   mode: 'development',
-  watch: true,
   entry: './user/index.jsx',
   module: {
     rules: [{

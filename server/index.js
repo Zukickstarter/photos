@@ -11,7 +11,6 @@ const app = express();
 const portno = 4984;
 
 app.use(morgan('tiny'));
-app.use(express.static(path.join(__dirname, '../public')));
 
 app.get('/', function(req, res){
     res.sendfile('index.html', { root: __dirname + "./../pub/" } );
