@@ -62,8 +62,13 @@ const Slides = class extends React.Component {
     return <div style={divStyle}>
       {
         this.props.data.map(
-          (data, n) =>
-            <Slide key={n} data={data} show={this.state.current === n} />
+          (data, n) => {
+            if (n === this.state.current) {
+              return <Slide key={n} data={data} show={this.state.current === n} />;
+            } else {
+              return <div></div>;
+            }
+          }
         )
       }
       <a onClick={() => this.forward(1)} style={arrowStyleLeft}>&lt;</a>

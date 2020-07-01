@@ -3,7 +3,7 @@ const path = require('path');
 console.log(__dirname);
 
 module.exports = {
-  mode: 'development',
+  mode: 'production',
   entry: './user/index.jsx',
   module: {
     rules: [{
