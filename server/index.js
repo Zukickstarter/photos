@@ -12,6 +12,12 @@ const portno = 4984;
 
 app.use(morgan('tiny'));
 
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  next();
+});
+
+
 const api = function (res, idn) {
   if (idn === undefined) {
     idn = 0;

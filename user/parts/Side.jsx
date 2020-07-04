@@ -6,7 +6,7 @@ import React from 'react';
  * @type {Map<String, String>}
  */
 const outterDiv = {
-  'fontFamily': 'Helvetica, Arial, Sans-Serif',
+  'fontFamily': 'MaisonNeueBook, Helvetica, Arial, Sans-Serif',
   'float': 'left',
   'width': '20%',
 };
